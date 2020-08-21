@@ -276,13 +276,6 @@ var app = (function () {
         else
             dispatch_dev("SvelteDOMSetAttribute", { node, attribute, value });
     }
-    function set_data_dev(text, data) {
-        data = '' + data;
-        if (text.wholeText === data)
-            return;
-        dispatch_dev("SvelteDOMSetData", { node: text, data });
-        text.data = data;
-    }
     function validate_slots(name, slot, keys) {
         for (const slot_key of Object.keys(slot)) {
             if (!~keys.indexOf(slot_key)) {
@@ -314,34 +307,29 @@ var app = (function () {
     function create_fragment(ctx) {
     	let main;
     	let h1;
-    	let t0;
     	let t1;
-    	let t2;
-    	let t3;
     	let p;
-    	let t4;
+    	let t2;
     	let a;
-    	let t6;
+    	let t4;
 
     	const block = {
     		c: function create() {
     			main = element("main");
     			h1 = element("h1");
-    			t0 = text("Hello ");
-    			t1 = text(/*name*/ ctx[0]);
-    			t2 = text("!");
-    			t3 = space();
+    			h1.textContent = "(: ppǝ ᴉǝɥ";
+    			t1 = space();
     			p = element("p");
-    			t4 = text("Visit the ");
+    			t2 = text("Visit the ");
     			a = element("a");
     			a.textContent = "Svelte tutorial";
-    			t6 = text(" to learn how to build Svelte apps.");
-    			attr_dev(h1, "class", "svelte-1tky8bj");
+    			t4 = text(" to learn how to build Svelte apps.");
+    			attr_dev(h1, "class", "svelte-ib8vkn");
     			add_location(h1, file, 5, 1, 46);
     			attr_dev(a, "href", "https://svelte.dev/tutorial");
-    			add_location(a, file, 6, 14, 83);
-    			add_location(p, file, 6, 1, 70);
-    			attr_dev(main, "class", "svelte-1tky8bj");
+    			add_location(a, file, 6, 14, 80);
+    			add_location(p, file, 6, 1, 67);
+    			attr_dev(main, "class", "svelte-ib8vkn");
     			add_location(main, file, 4, 0, 38);
     		},
     		l: function claim(nodes) {
@@ -350,18 +338,13 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
     			append_dev(main, h1);
-    			append_dev(h1, t0);
-    			append_dev(h1, t1);
-    			append_dev(h1, t2);
-    			append_dev(main, t3);
+    			append_dev(main, t1);
     			append_dev(main, p);
-    			append_dev(p, t4);
+    			append_dev(p, t2);
     			append_dev(p, a);
-    			append_dev(p, t6);
+    			append_dev(p, t4);
     		},
-    		p: function update(ctx, [dirty]) {
-    			if (dirty & /*name*/ 1) set_data_dev(t1, /*name*/ ctx[0]);
-    		},
+    		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {

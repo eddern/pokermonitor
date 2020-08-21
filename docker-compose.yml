@@ -1,0 +1,20 @@
+
+version: '3.7'
+
+services:
+
+  po_kr_dev:
+    container_name: po_kr_dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/web-app'
+      - '/web-app/node_modules'
+    ports:
+            - '80:80'
+    environment:
+      - NODE_ENV=development
+
+
+
