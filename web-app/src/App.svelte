@@ -1,30 +1,35 @@
 <script>
-	export let name;
+  import { getContext } from 'svelte';
+  import Timer from './Timer.svelte';
+  import BlindsController from './BlindsController/BlindsController.svelte';
+  import BlindViewer from './BlindsController/BlindViewer.svelte';
+  let level = 1;
+  let timeFromUser = 20;
+  let bigBlind = 10;
+  let smallBlind = 5;
+  const incLevel = () => level++;
+
+  $: {
+    bigBlind = bigBlind * level;
+    smallBlind = bigBlind / 2;
+  }
+  console.log(level);
 </script>
 
-<main>
-	<h1>(: ppǝ ᴉǝɥ</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 13em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  main {
+    text-align: center;
+  }
+  h1 {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 13em;
+    font-weight: 100;
+  }
 </style>
+
+<main>
+  <h1>Pokr2kr</h1>
+  <Timer {timeFromUser} {incLevel} />
+  <BlindViewer {bigBlind} {smallBlind} />
+</main>
