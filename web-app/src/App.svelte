@@ -3,17 +3,27 @@
   import Timer from './Timer.svelte';
   import BlindsController from './BlindsController/BlindsController.svelte';
   import BlindViewer from './BlindsController/BlindViewer.svelte';
-  let level = 1;
-  let timeFromUser = 20;
-  let bigBlind = 10;
-  let smallBlind = 5;
-  const incLevel = () => level++;
+  import data from './data';
 
+  let timeFromUser = data.timePerRound;
+  let index = 0;
+  let bigBlind = data.blinds[index];
+  let smallBlind = bigBlind / 2;
+  const incLevel = () => {
+    if (index === data.blinds.length - 1) {
+      console.log('GameOver', 'background:red');
+    } else {
+      index++;
+    }
+  };
+  console.log(data);
+
+  // These react to index increment
   $: {
-    bigBlind = bigBlind * level;
+    bigBlind = data.blinds[index];
     smallBlind = bigBlind / 2;
+    timeFromUser = data.timePerRound;
   }
-  console.log(level);
 </script>
 
 <style>
@@ -21,6 +31,7 @@
     text-align: center;
   }
   h1 {
+    margin-top: 0;
     color: #ff3e00;
     text-transform: uppercase;
     font-size: 13em;

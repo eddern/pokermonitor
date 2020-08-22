@@ -24,6 +24,7 @@
       incLevel();
       timeRemaining = resetTimer();
       clearInterval(interval);
+      interval = setInterval(reduceTime, 1000);
     }
     timeRemaining = Math.max(0, timeRemaining - 1000);
   };
