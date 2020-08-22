@@ -8,7 +8,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 200px;
   }
   .flexContainer:first-child {
     margin-right: 10%;

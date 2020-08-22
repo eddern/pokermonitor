@@ -9,6 +9,8 @@
   let index = 0;
   let bigBlind = data.blinds[index];
   let smallBlind = bigBlind / 2;
+  let isFullscreen = false;
+
   const incLevel = () => {
     index++;
     if (index > data.blinds.length - 1) {
@@ -32,6 +34,52 @@
     smallBlind = Math.round(bigBlind / 2);
     timeFromUser = data.timePerRound;
   }
+
+  function openFullscreen() {
+    const elem = document.getElementById('mainContainer');
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      /* Chrome, Safari and Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+
+  $: {
+    console.log('isFullscreen', isFullscreen);
+  }
+  document.onfullscreenchange = () => (isFullscreen = !isFullscreen);
+
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      /* Firefox */
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      /* Chrome, Safari and Opera */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      /* IE/Edge */
+      document.msExitFullscreen();
+    }
+  }
+
+  const toggleFullscreen = () =>
+    isFullscreen ? closeFullscreen() : openFullscreen();
+
+  document.addEventListener('keypress', e => {
+    console.log(e.code);
+    if (e.code === 'Escape') {
+      closeFullscreen();
+    }
+  });
 </script>
 
 <style>
@@ -43,16 +91,10 @@
     flex-direction: column;
     height: 100vh;
   }
-  h1 {
-    margin-top: 0;
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 13em;
-    font-weight: 100;
-  }
 </style>
 
-<main>
+<main id="mainContainer">
+  <button on:click={toggleFullscreen}>(fullscreen icon)</button>
   <Timer {timeFromUser} {incLevel} />
   <BlindViewer {bigBlind} {smallBlind} />
 </main>
