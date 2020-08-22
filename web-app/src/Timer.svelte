@@ -36,6 +36,7 @@
     color: #dbe3d0;
     /* color: #35654d; */
     display: flex;
+    width: 100%;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -46,8 +47,35 @@
     font-weight: 100;
     margin: 0;
   }
+
+  .slider {
+    -webkit-appearance: none;
+    width: 50%;
+    height: 25px;
+    background: #35654d;
+    outline: none;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border: 0;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4caf50;
+    cursor: pointer;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4caf50;
+    cursor: pointer;
+  }
 </style>
 
 <div>
   <p>{timeRemaining / 1000}</p>
+  <input type="range" min="1" max="100" value="50" class="slider" />
 </div>
