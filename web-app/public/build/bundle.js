@@ -836,9 +836,9 @@ var app = (function () {
     			t2 = space();
     			create_component(blindviewer.$$.fragment);
     			attr_dev(h1, "class", "svelte-ygqylv");
-    			add_location(h1, file$3, 42, 2, 918);
+    			add_location(h1, file$3, 50, 2, 1151);
     			attr_dev(main, "class", "svelte-ygqylv");
-    			add_location(main, file$3, 41, 0, 909);
+    			add_location(main, file$3, 49, 0, 1142);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -897,10 +897,10 @@ var app = (function () {
     	let smallBlind = bigBlind / 2;
 
     	const incLevel = () => {
-    		if (index === data.blinds.length - 1) {
-    			console.log("GameOver", "background:red");
-    		} else {
-    			$$invalidate(4, index++, index);
+    		$$invalidate(4, index++, index);
+
+    		if (index > data.blinds.length - 1) {
+    			console.log(`Last blind reached, continuing on ${data.blinds[data.blinds.length - 1]} increments.`, "background:red");
     		}
     	};
 
@@ -942,8 +942,13 @@ var app = (function () {
     		if ($$self.$$.dirty & /*index, bigBlind*/ 18) {
     			// These react to index increment
     			 {
-    				$$invalidate(1, bigBlind = data.blinds[index]);
-    				$$invalidate(2, smallBlind = bigBlind / 2);
+    				if (index > data.blinds.length - 1) {
+    					$$invalidate(1, bigBlind += data.blinds[data.blinds.length - 1]);
+    				} else {
+    					$$invalidate(1, bigBlind = data.blinds[index]);
+    				}
+
+    				$$invalidate(2, smallBlind = Math.round(bigBlind / 2));
     				$$invalidate(0, timeFromUser = data.timePerRound);
     			}
     		}
