@@ -2,26 +2,25 @@
 
 ## Temporary Brain Dump:
 
-Poker screen:
 
 Features:
-    - Vet når blinds skal raises
-    - Fancy GUI
-    - QR kode for lett tilgang
-    - cottage mode (off the grid)
+- Vet når blinds skal raises
+- Fancy GUI
+- QR kode for lett tilgang
+- cottage mode (off the grid)
 
 Teknologier:
-    - Hosting 
-    - 
+- Hosting 
+- svelte
 
 Notes:
-   - ingen user input annet enn starting av en timer
-   - 
+- ingen user input annet enn starting av en timer
+- 
 
 
-Alpha version (naked as hell, ok):
-   - Release notes:
-       - This update impletements the .gitignore file
+Alpha version:
+- Release notes:
+   - This update impletements the .gitignore file
 
 ### User stories 
 
@@ -35,7 +34,7 @@ As a user, I want to be able to automatically suggest what the blind increase sh
 
 
 Todo:
- - sette opp git
+ - [x] sette opp git
  - Lære vue
  - Mekke JIRA
 
