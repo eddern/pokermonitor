@@ -91,10 +91,50 @@
     flex-direction: column;
     height: 100vh;
   }
+  .fullscreen-btn:hover {
+    transform: scale(1.2);
+  }
+  .fullscreen-btn {
+    padding: 30px;
+    color: white;
+  }
+  .exit-fullscreen-btn:hover {
+    transform: scale(0.8);
+  }
+  .exit-fullscreen-btn {
+    padding: 30px;
+    color: white;
+  }
+
+  span {
+    font-size: 2rem;
+    transition: transform 200ms ease;
+  }
+  button {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: 0;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
 </style>
 
 <main id="mainContainer">
-  <button on:click={toggleFullscreen}>(fullscreen icon)</button>
+  <button on:click={toggleFullscreen}>
+    {#if isFullscreen}
+      <span class="material-icons exit-fullscreen-btn">
+        fullscreen_exit
+      </span>
+    {:else}
+      <span class="material-icons fullscreen-btn">fullscreen</span>
+    {/if}
+  </button>
   <Timer {timeFromUser} {incLevel} />
   <BlindViewer {bigBlind} {smallBlind} />
 </main>
