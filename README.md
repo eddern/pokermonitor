@@ -33,7 +33,7 @@ As a user, I want to be able to configure the blind increase so that you can alt
 As a user, I want to be able to automatically suggest what the blind increase should be based on buy-in.
 
 
-Todo:
+### Todo:
  - [x] sette opp git
  - [ ] Mekke JIRA
  - [ ] Team installs Emacs 
