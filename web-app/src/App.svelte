@@ -4,7 +4,7 @@
 	import Timer from './Timer/Timer.svelte';
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import data from './data';
-	import Fullscreen from './Fullscreen.svelte';
+	import Chips from './Chips.svelte';
 
 	const timeFromUser = data.timePerRound;
 </script>
@@ -28,9 +28,9 @@
 	}
 </style>
 
-<!-- <svelte:window on:keydown={handleKeydown} /> -->
-<main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
-	<Fullscreen />
-	<Timer {timeFromUser} />
-	<BlindViewer />
+<main>
+	<Chips chips={data.chips} />
+	<h1>Pokr2kr</h1>
+	<Timer {timeFromUser} {incLevel} />
+	<BlindViewer {bigBlind} {smallBlind} />
 </main>
