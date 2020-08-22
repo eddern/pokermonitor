@@ -1,10 +1,23 @@
 <script>
-	export let name;
+	import { Router, Link, Route } from "svelte-routing";
+	import Testenv from "./nybos-testcooding-env/Testenv.svelte";
+	import Home from "./nybos-testcooding-env/Home.svelte";
+	export let url = "";
+
 </script>
 
 <main>
-	<h1>(: ppǝ ᴉǝɥ</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<Router url="{url}">
+		<nav>
+		  <Link to="/">Home</Link>
+		  <Link to="testenv">Testenv</Link>
+		</nav>
+		<div>
+		  <Route path="testenv" component="{Testenv}" />
+		  <Route path="/"><Home /></Route>
+		</div>
+	  </Router>
+	  
 </main>
 
 <style>
@@ -15,12 +28,7 @@
 		margin: 0 auto;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 13em;
-		font-weight: 100;
-	}
+
 
 	@media (min-width: 640px) {
 		main {
