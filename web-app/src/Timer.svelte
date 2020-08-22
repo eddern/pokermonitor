@@ -11,7 +11,7 @@
   );
 
   const oneMin = 60 * 1000;
-  const tenSec = 10000;
+  const tenSec = 10 * 1000;
 
   const reduceTime = () => {
     if (timeRemaining == oneMin) {
@@ -33,7 +33,8 @@
 
 <style>
   div {
-    color: gold;
+    color: #dbe3d0;
+    /* color: #35654d; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -41,11 +42,12 @@
   }
 
   p {
-    font-size: 6rem;
+    font-size: 14rem;
+    font-weight: 100;
     margin: 0;
   }
 </style>
 
 <div>
-  <p>Time left: {timeRemaining / 1000}s</p>
+  <p>{timeRemaining / 1000}</p>
 </div>

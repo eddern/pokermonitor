@@ -1,9 +1,9 @@
 <script>
-  import { getContext } from "svelte";
-  import Timer from "./Timer.svelte";
-  import BlindsController from "./BlindsController/BlindsController.svelte";
-  import BlindViewer from "./BlindsController/BlindViewer.svelte";
-  import data from "./data";
+  import { getContext } from 'svelte';
+  import Timer from './Timer.svelte';
+  import BlindsController from './BlindsController/BlindsController.svelte';
+  import BlindViewer from './BlindsController/BlindViewer.svelte';
+  import data from './data';
 
   let timeFromUser = data.timePerRound;
   let index = 0;
@@ -16,7 +16,7 @@
         `Last blind reached, continuing on ${
           data.blinds[data.blinds.length - 1]
         } increments.`,
-        "background:red"
+        'background:red'
       );
     }
   };
@@ -37,6 +37,11 @@
 <style>
   main {
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
   }
   h1 {
     margin-top: 0;
@@ -48,7 +53,6 @@
 </style>
 
 <main>
-  <h1>Pokr2kr</h1>
   <Timer {timeFromUser} {incLevel} />
   <BlindViewer {bigBlind} {smallBlind} />
 </main>

@@ -10,20 +10,38 @@
     flex-direction: column;
     width: 200px;
   }
+  .flexContainer:first-child {
+    margin-right: 10%;
+  }
   .mainWrapper {
     display: flex;
     width: 100%;
     justify-content: center;
   }
+  .blindNumber {
+    font-size: 10rem;
+    font-weight: 100;
+  }
+  .bigBlind {
+    font-size: 12rem;
+    font-weight: 100;
+  }
+  .bigText {
+    font-size: 2rem;
+  }
+  p {
+    color: #999;
+    margin: 0;
+  }
 </style>
 
 <div class="mainWrapper">
   <div class="flexContainer">
-    <h3>Small Blind</h3>
-    <p>{smallBlind}</p>
+    <p class="bigBlind">{bigBlind}</p>
+    <p class="bigText">BIG</p>
   </div>
   <div class="flexContainer">
-    <h3>Big Blind</h3>
-    <p>{bigBlind}</p>
+    <p class="blindNumber">{smallBlind}</p>
+    <p>SMALL</p>
   </div>
 </div>
