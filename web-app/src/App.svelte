@@ -1,30 +1,67 @@
 <script>
-	export let name;
+  import { getContext } from "svelte";
+  import Timer from "./Timer.svelte";
+  import BlindsController from "./BlindsController/BlindsController.svelte";
+  import BlindViewer from "./BlindsController/BlindViewer.svelte";
+  import NextBlind from "./BlindsController/NextBlind.svelte";
+  import data from "./data";
+
+  let timeFromUser = data.timePerRound;
+  let index = 0;
+  let bigBlind = data.blinds[index];
+  let smallBlind = bigBlind / 2;
+  let nextBigBlind = data.blinds[index+1]
+  let nextSmallBlind = nextBigBlind / 2;
+  const incLevel = () => {
+    index++;
+    if (index > data.blinds.length - 1) {
+      console.log(
+        `Last blind reached, continuing on ${
+          data.blinds[data.blinds.length - 1]
+        } increments.`
+      );
+    }
+  };
+  console.log(data);
+
+  // These react to index increment
+  $: {
+    if (index > data.blinds.length - 1) {
+      bigBlind += data.blinds[data.blinds.length - 1];
+      nextBigBlind += data.blinds[data.blinds.length - 1];
+
+    } else {
+      bigBlind = data.blinds[index];
+      if (index > data.blinds.length - 2){
+        nextBigBlind += data.blinds[data.blinds.length - 1];
+      } 
+      else{
+        nextBigBlind = data.blinds[index+1];
+      }
+    }
+    smallBlind = Math.round(bigBlind / 2);
+    nextSmallBlind = Math.round(nextBigBlind / 2);
+    timeFromUser = data.timePerRound;
+  }
 </script>
 
-<main>
-	<h1>(: ppǝ ᴉǝɥ</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 13em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  main {
+    text-align: center;
+  }
+  h1 {
+    margin-top: 0;
+    margin-bottom: 50px;
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 13em;
+    font-weight: 100;
+  }
 </style>
+
+<main>
+  <h1>Pokr2kr</h1>
+  <Timer {timeFromUser} {incLevel} />
+  <BlindViewer {bigBlind} {smallBlind} />
+  <NextBlind {nextBigBlind} {nextSmallBlind}/>
+</main>
