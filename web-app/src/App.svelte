@@ -18,8 +18,7 @@
       console.log(
         `Last blind reached, continuing on ${
           data.blinds[data.blinds.length - 1]
-        } increments.`,
-        "background:red"
+        } increments.`
       );
     }
   };

@@ -981,9 +981,9 @@ var app = (function () {
     			t3 = space();
     			create_component(nextblind.$$.fragment);
     			attr_dev(h1, "class", "svelte-aym1cz");
-    			add_location(h1, file$4, 63, 2, 1674);
+    			add_location(h1, file$4, 62, 2, 1647);
     			attr_dev(main, "class", "svelte-aym1cz");
-    			add_location(main, file$4, 62, 0, 1664);
+    			add_location(main, file$4, 61, 0, 1637);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1056,7 +1056,7 @@ var app = (function () {
     		$$invalidate(6, index++, index);
 
     		if (index > data.blinds.length - 1) {
-    			console.log(`Last blind reached, continuing on ${data.blinds[data.blinds.length - 1]} increments.`, "background:red");
+    			console.log(`Last blind reached, continuing on ${data.blinds[data.blinds.length - 1]} increments.`);
     		}
     	};
 
