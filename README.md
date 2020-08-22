@@ -35,8 +35,8 @@ As a user, I want to be able to automatically suggest what the blind increase sh
 
 Todo:
  - [x] sette opp git
- - Lære vue
- - Mekke JIRA
+ - [ ] Mekke JIRA
+ - [ ] Team installs Emacs 
 
 
 
