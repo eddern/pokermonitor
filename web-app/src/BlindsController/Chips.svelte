@@ -1,4 +1,3 @@
 <script lang="ts">
-	export let chipsArray: string[]
-	  ;
+	export let chipsArray: string[];
 </script>
