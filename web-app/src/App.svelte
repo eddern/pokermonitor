@@ -5,12 +5,13 @@
   import BlindViewer from "./BlindsController/BlindViewer.svelte";
   import NextBlind from "./BlindsController/NextBlind.svelte";
   import data from "./data";
+  import Players from "./Players.svelte";
 
   let timeFromUser = data.timePerRound;
   let index = 0;
   let bigBlind = data.blinds[index];
   let smallBlind = bigBlind / 2;
-  let nextBigBlind = data.blinds[index+1]
+  let nextBigBlind = data.blinds[index + 1];
   let nextSmallBlind = nextBigBlind / 2;
   const incLevel = () => {
     index++;
@@ -29,14 +30,12 @@
     if (index > data.blinds.length - 1) {
       bigBlind += data.blinds[data.blinds.length - 1];
       nextBigBlind += data.blinds[data.blinds.length - 1];
-
     } else {
       bigBlind = data.blinds[index];
-      if (index > data.blinds.length - 2){
+      if (index > data.blinds.length - 2) {
         nextBigBlind += data.blinds[data.blinds.length - 1];
-      } 
-      else{
-        nextBigBlind = data.blinds[index+1];
+      } else {
+        nextBigBlind = data.blinds[index + 1];
       }
     }
     smallBlind = Math.round(bigBlind / 2);
@@ -63,5 +62,6 @@
   <h1>Pokr2kr</h1>
   <Timer {timeFromUser} {incLevel} />
   <BlindViewer {bigBlind} {smallBlind} />
-  <NextBlind {nextBigBlind} {nextSmallBlind}/>
+  <NextBlind {nextBigBlind} {nextSmallBlind} />
+  <Players />
 </main>
