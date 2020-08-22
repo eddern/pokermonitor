@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ChipIcon from './ChipIcon.svelte';
-	export let chips;
+	export let chipValues;
 </script>
 
 <style>
@@ -13,14 +13,36 @@
 		width: 200px;
 		height: 200px;
 	} */
+
+	.wrapper {
+		width: 100%;
+		display: flex;
+	}
+
+	.chipsWrapper {
+		display: flex;
+		margin: auto;
+	}
+
+	.chipContainer {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.chipValue {
+		font-size: 40px;
+	}
 </style>
 
 <main>
 	<div class="wrapper">
-		{#each Object.keys(chips) as chipColor, i}
-			<div>{chipColor}</div>
-			<span>{chips[chipColor]}</span>
-			<ChipIcon color={chipColor} x={-i * 300} />
-		{/each}
+		<div class="chipsWrapper">
+			{#each Object.keys(chipValues) as chipColor, i}
+				<div class="chipContainer">
+					<ChipIcon color={chipColor} x={-i * 300} />
+					<span class="chipValue">{chipValues[chipColor]}</span>
+				</div>
+			{/each}
+		</div>
 	</div>
 </main>

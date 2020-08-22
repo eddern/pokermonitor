@@ -3,16 +3,7 @@
 	export let x;
 </script>
 
-<svg
-	xmlns="http://www.w3.org/2000/svg"
-	version="1.1"
-	id="Capa_1"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	x="0px"
-	y="0px"
-	viewBox={x + ' 0 5000 5000'}
-	style="enable-background:new 0 0 296.477 296.477;"
-	xml:space="preserve">
+<svg>
 	<g>
 		<path
 			d="M244.63,35.621c-21.771-18.635-47.382-29.855-73.767-33.902C121.871-5.797,70.223,11.421,35.622,51.847

@@ -29,7 +29,7 @@
 </style>
 
 <main>
-	<Chips chips={data.chips} />
+	<Chips chipValues={data.chipValues} />
 	<h1>Pokr2kr</h1>
 	<Timer {timeFromUser} {incLevel} />
 	<BlindViewer {bigBlind} {smallBlind} />
