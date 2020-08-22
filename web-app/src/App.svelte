@@ -1,7 +1,6 @@
-<script>
+<script lang="ts">
   import { getContext } from 'svelte';
   import Timer from './Timer.svelte';
-  import BlindsController from './BlindsController/BlindsController.svelte';
   import BlindViewer from './BlindsController/BlindViewer.svelte';
   import data from './data';
 
