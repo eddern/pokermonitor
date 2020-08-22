@@ -1,4 +1,3 @@
-# po_kr
 
 ## Temporary Brain Dump:
 
