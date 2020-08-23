@@ -13,6 +13,8 @@ service Pokermonitor {
 
   rpc joinGame(JoinGameRequest) returns (google.protobuf.BoolValue);
 
+  rpc listPlayers(GameInfo) returns (stream google.protobuf.StringValue);
+
 }
 
 message GameInfo {
