@@ -25,6 +25,7 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    maven { setUrl("https://jitpack.io") }
 }
 dependencies {
     testImplementation(kotlin("test-junit"))
@@ -40,6 +41,7 @@ dependencies {
     implementation("io.ktor:ktor-client-json:$ktorVersion")
     implementation("io.ktor:ktor-client-gson:$ktorVersion")
     implementation( "io.ktor:ktor-client-apache:$ktorVersion")
+    implementation("com.github.guepardoapps:kulid:1.1.2.0")
 
     runtimeOnly("io.grpc:grpc-netty-shaded:$grpcVersion")
 }

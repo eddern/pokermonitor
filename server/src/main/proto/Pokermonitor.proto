@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+package app.pokermonitor;
+
+service Pokermonitor {
+
+  rpc createGame(google.protobuf.Empty) returns (GameInfo);
+
+}
+
+message GameInfo {
+  string id = 1;
+}
