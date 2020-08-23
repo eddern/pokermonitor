@@ -1,8 +1,9 @@
 <script>
 	import { setContext } from 'svelte';
 	import Slider from './Slider.svelte';
+	import { round } from '../stores/gameStore';
 	export let timeFromUser;
-	export let incLevel;
+
 	const resetTimer = () => {
 		return timeFromUser;
 	};
@@ -27,7 +28,7 @@
 		// 	audio.play();
 		// }
 		if (timeRemaining === 0) {
-			incLevel();
+			round.increment();
 			timeRemaining = resetTimer();
 			clearInterval(interval);
 			interval = setInterval(reduceTime, 1000);

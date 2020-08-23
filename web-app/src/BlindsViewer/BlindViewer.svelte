@@ -1,46 +1,56 @@
 <script>
-	export let bigBlind;
-	export let smallBlind;
+	import { smallBlind, bigBlind, nextBigBlind, nextSmallBlind } from '../stores/gameStore';
 </script>
 
 <style>
-	.flexContainer {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
+	mainWrapper {
+		width: 50%;
 	}
-	.flexContainer:first-child {
-		margin-right: 10%;
-	}
-	.mainWrapper {
+
+	blindsWrapper {
+		width: 200px;
 		display: flex;
 		width: 100%;
-		justify-content: center;
+		justify-content: space-around;
 	}
-	.blindNumber {
-		font-size: 10rem;
-		font-weight: 100;
-	}
-	.bigBlind {
+
+	blindNumber {
 		font-size: 12rem;
-		font-weight: 100;
-	}
-	.bigText {
-		font-size: 2rem;
-	}
-	p {
-		color: #999;
+		font-weight: 200;
+		width: 50%;
+		text-align: center;
+		color: #ddd;
 		margin: 0;
+	}
+
+	nextBlindNumber {
+		color: #666;
+		font-size: 6rem;
+		font-weight: 100;
+		width: 50%;
+		text-align: center;
+		margin: 0;
+	}
+	h3 {
+		color: #aaa;
+		font-weight: 100;
+		font-size: 2rem;
+		margin: 0;
+	}
+	hr {
+		border-color: #000;
 	}
 </style>
 
-<div class="mainWrapper">
-	<div class="flexContainer">
-		<p class="bigBlind">{bigBlind}</p>
-		<p class="bigText">BIG</p>
-	</div>
-	<div class="flexContainer">
-		<p class="blindNumber">{smallBlind}</p>
-		<p>SMALL</p>
-	</div>
-</div>
+<mainWrapper>
+	<h3>Blinds</h3>
+	<hr />
+	<blindsWrapper>
+		<blindNumber>{$bigBlind}</blindNumber>
+		<blindNumber>{$smallBlind}</blindNumber>
+	</blindsWrapper>
+	<blindsWrapper>
+		<nextBlindNumber>{$nextBigBlind}</nextBlindNumber>
+		<nextBlindNumber>{$nextSmallBlind}</nextBlindNumber>
+	</blindsWrapper>
+</mainWrapper>

@@ -1,9 +1,7 @@
 <script>
 	export let timeRemaining;
 	export let max;
-	import { isInactive } from '../stores';
-	let inactive;
-	isInactive.subscribe((value) => (inactive = value));
+	import { isInactive } from '../stores/metaStore';
 </script>
 
 <style>
@@ -89,16 +87,18 @@
 	}
 
 	.progressbar {
+		border-radius: 4px;
 		position: absolute;
 		top: 0;
 		transition: opacity 200ms ease-in-out;
 		height: 5px;
 		width: 100%;
-		background: rgba(255, 255, 255, 0.2);
+		background: #35654d;
 	}
 
 	.progress-left {
-		background: rgba(255, 255, 255, 0.4);
+		border-radius: 4px;
+		background: mediumaquamarine;
 		height: 100%;
 		transition: 1s linear;
 	}
@@ -122,11 +122,11 @@
 <div class="slider-container">
 	<input
 		type="range"
-		class="slider {inactive ? 'hide' : 'show'}"
+		class="slider {$isInactive ? 'hide' : 'show'}"
 		bind:value={timeRemaining}
 		min="0"
 		{max} />
-	<div class="progressbar {inactive ? 'display-block' : 'display-none'}">
+	<div class="progressbar {$isInactive ? 'display-block' : 'display-none'}">
 		<div class="progress-left" style="width: {`${(timeRemaining / max) * 100}%`}" />
 	</div>
 </div>
