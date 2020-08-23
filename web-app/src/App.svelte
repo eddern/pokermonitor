@@ -25,12 +25,26 @@
 	.inactive {
 		cursor: none;
 		background-color: black;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-items: center;
+	}
+
+	h1 {
+		margin-top: 0;
+		color: #ff3e00;
+		text-transform: uppercase;
+		font-size: 13em;
+		font-weight: 100;
 	}
 </style>
 
 <main>
+	<div class="chipsContainr" />
 	<Chips chipValues={data.chipValues} />
-	<h1>Pokr2kr</h1>
-	<Timer {timeFromUser} {incLevel} />
-	<BlindViewer {bigBlind} {smallBlind} />
+	<div class="mainContainer">
+		<h1>Pokr2kr</h1>
+		<Timer {timeFromUser} {incLevel} />
+		<BlindViewer {bigBlind} {smallBlind} />
+	</div>
 </main>
