@@ -1,5 +1,6 @@
 <script>
 	export let timeRemaining;
+	export let max;
 	export let inactive;
 </script>
 
@@ -39,5 +40,5 @@
 </style>
 
 <div>
-	<input type="range" class="slider" bind:value={timeRemaining} min="0" />
+	<input type="range" class="slider" bind:value={timeRemaining} min="0" {max} />
 </div>
