@@ -1,6 +1,8 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
 
 option java_multiple_files = true;
 package app.pokermonitor;
@@ -9,8 +11,15 @@ service Pokermonitor {
 
   rpc createGame(google.protobuf.Empty) returns (GameInfo);
 
+  rpc joinGame(JoinGameRequest) returns (google.protobuf.BoolValue);
+
 }
 
 message GameInfo {
   string id = 1;
+}
+
+message JoinGameRequest {
+  string name = 1;
+  string gameId = 2;
 }

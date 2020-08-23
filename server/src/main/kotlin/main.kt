@@ -5,7 +5,7 @@ val logger = KotlinLogging.logger {}
 
 fun main(args: Array<String>) {
 
-    logger.info { "Starting application." }
+    logger.info { "Starting application" }
 
     val port = 50051
 
