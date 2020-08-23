@@ -1,7 +1,7 @@
 <script>
 	export let timeRemaining;
 	export let max;
-	import { isInactive } from '../stores';
+	import { isInactive } from '../stores/metaStore';
 	let inactive;
 	isInactive.subscribe((value) => (inactive = value));
 </script>

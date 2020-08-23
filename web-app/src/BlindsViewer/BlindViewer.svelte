@@ -1,6 +1,5 @@
 <script>
-	export let bigBlind;
-	export let smallBlind;
+	import { smallBlind, bigBlind } from '../stores/gameStore';
 </script>
 
 <style>
@@ -21,13 +20,7 @@
 		font-size: 10rem;
 		font-weight: 100;
 	}
-	.bigBlind {
-		font-size: 12rem;
-		font-weight: 100;
-	}
-	.bigText {
-		font-size: 2rem;
-	}
+
 	p {
 		color: #999;
 		margin: 0;
@@ -36,11 +29,11 @@
 
 <div class="mainWrapper">
 	<div class="flexContainer">
-		<p class="bigBlind">{bigBlind}</p>
-		<p class="bigText">BIG</p>
+		<p class="blindNumber">{$bigBlind}</p>
+		<p>BIG</p>
 	</div>
 	<div class="flexContainer">
-		<p class="blindNumber">{smallBlind}</p>
+		<p class="blindNumber">{$smallBlind}</p>
 		<p>SMALL</p>
 	</div>
 </div>
