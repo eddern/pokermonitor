@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
+	import { isFullscreen, isInactive } from './stores';
 	import Timer from './Timer/Timer.svelte';
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import data from './data';
+	import Fullscreen from './Fullscreen.svelte';
 
 	let timeFromUser = data.timePerRound;
 	let index = 0;
 	let bigBlind = data.blinds[index];
 	let smallBlind = bigBlind / 2;
-	let isFullscreen = false;
-	let inactive = false;
+	let inactive;
+	isInactive.subscribe((value) => (inactive = value));
 
 	const incLevel = () => {
 		index++;
@@ -22,7 +24,6 @@
 			);
 		}
 	};
-	console.log(data);
 
 	// These react to index increment
 	$: {
@@ -34,78 +35,6 @@
 		smallBlind = Math.round(bigBlind / 2);
 		timeFromUser = data.timePerRound;
 	}
-
-	function openFullscreen() {
-		const elem = document.getElementById('mainContainer');
-		if (elem.requestFullscreen) {
-			elem.requestFullscreen();
-		} else if (elem.mozRequestFullScreen) {
-			/* Firefox */
-			elem.mozRequestFullScreen();
-		} else if (elem.webkitRequestFullscreen) {
-			/* Chrome, Safari and Opera */
-			elem.webkitRequestFullscreen();
-		} else if (elem.msRequestFullscreen) {
-			/* IE/Edge */
-			elem.msRequestFullscreen();
-		}
-	}
-
-	$: {
-		console.log('isFullscreen', isFullscreen);
-	}
-
-	document.onfullscreenchange = () => (isFullscreen = !isFullscreen);
-
-	function closeFullscreen() {
-		if (document.exitFullscreen) {
-			document.exitFullscreen();
-		} else if (document.mozCancelFullScreen) {
-			/* Firefox */
-			document.mozCancelFullScreen();
-		} else if (document.webkitExitFullscreen) {
-			/* Chrome, Safari and Opera */
-			document.webkitExitFullscreen();
-		} else if (document.msExitFullscreen) {
-			/* IE/Edge */
-			document.msExitFullscreen();
-		}
-	}
-
-	const toggleFullscreen = () => (isFullscreen ? closeFullscreen() : openFullscreen());
-
-	document.addEventListener('keypress', (e) => {
-		console.log(e.code);
-		if (e.code === 'Escape') {
-			closeFullscreen();
-		}
-	});
-
-	$: {
-		console.log('inactive:', inactive);
-	}
-
-	// MOUSE INACTIVITY CODE:
-	var inactivityWater = function () {
-		var time;
-		function inactiveUI() {
-			if (isFullscreen) {
-				inactive = true;
-			}
-		}
-		function resetTimer() {
-			inactive = false;
-			clearTimeout(time);
-			time = setTimeout(inactiveUI, 1500);
-		}
-
-		resetTimer();
-		console.log('Adding listeners');
-		window.onload = resetTimer;
-		document.onmousemove = resetTimer;
-		document.onkeypress = resetTimer;
-	};
-	inactivityWater();
 </script>
 
 <style>
@@ -117,58 +46,10 @@
 		flex-direction: column;
 		height: 100vh;
 	}
-	.fullscreen-btn:hover {
-		transform: scale(1.2);
-	}
-	.fullscreen-btn {
-		padding: 30px;
-		color: white;
-	}
-	.exit-fullscreen-btn:hover {
-		transform: scale(0.8);
-	}
-	.exit-fullscreen-btn {
-		padding: 30px;
-		color: white;
-	}
-
-	span {
-		font-size: 2rem;
-		transition: transform 200ms ease;
-	}
-	button {
-		padding: 0;
-		margin: 0;
-		position: absolute;
-		top: 0;
-		right: 0;
-		background-color: transparent;
-		border: 0;
-	}
-
-	button:hover {
-		cursor: pointer;
-	}
-	.hide {
-		opacity: 0;
-	}
-	.show {
-		opacity: 1;
-	}
-
-	#fullscreen-toggle {
-		transition: opacity 400ms ease-in-out;
-	}
 </style>
 
 <main id="mainContainer" style={inactive ? 'cursor: none;' : 'cursor: auto;'}>
-	<button id="fullscreen-toggle" class={inactive ? 'hide' : 'show'} on:click={toggleFullscreen}>
-		{#if isFullscreen}
-			<span class="material-icons exit-fullscreen-btn">fullscreen_exit</span>
-		{:else}
-			<span class="material-icons fullscreen-btn">fullscreen</span>
-		{/if}
-	</button>
-	<Timer {timeFromUser} {incLevel} {inactive} />
+	<Fullscreen />
+	<Timer {timeFromUser} {incLevel} />
 	<BlindViewer {bigBlind} {smallBlind} />
 </main>
