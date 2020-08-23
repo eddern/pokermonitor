@@ -20,7 +20,6 @@
 				`Last blind reached, continuing on ${
 					data.blinds[data.blinds.length - 1]
 				} increments.`,
-				'background:red',
 			);
 		}
 	};
@@ -42,7 +41,7 @@
 		text-align: center;
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-evenly;
 		flex-direction: column;
 		height: 100vh;
 	}

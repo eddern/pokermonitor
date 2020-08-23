@@ -1,11 +1,11 @@
 <script>
 	import { isFullscreen, isInactive } from './stores';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	let fullscreen;
 	let inactive;
-	isFullscreen.subscribe((value) => (fullscreen = value));
-	isInactive.subscribe((value) => (inactive = value));
+	const unsubscribeFullscreen = isFullscreen.subscribe((value) => (fullscreen = value));
+	const unsubscribeInactive = isInactive.subscribe((value) => (inactive = value));
 
 	const closeFullscreen = () => {
 		if (document.exitFullscreen) {
@@ -79,6 +79,10 @@
 		return () => {
 			document.removeEventListener('keypress', handleKeyPress);
 		};
+	});
+	onDestroy(() => {
+		unsubscribeFullscreen();
+		unsubscribeInactive();
 	});
 </script>
 

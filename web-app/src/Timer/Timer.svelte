@@ -4,13 +4,20 @@
 	export let timeFromUser;
 	export let incLevel;
 	const resetTimer = () => {
-		return timeFromUser * 1000;
+		return timeFromUser;
 	};
 	let timeRemaining = resetTimer();
 	//const audio = new Audio('https://www.soundjay.com/button/beep-01a.mp3');
 
-	const oneMin = 60 * 1000;
-	const tenSec = 10 * 1000;
+	const oneMin = 60;
+	const tenSec = 10;
+
+	const formatTime = (timeRemaining) => {
+		const minutes = Math.floor(timeRemaining / 60);
+		const seconds = timeRemaining % 60;
+		const zeroPaddedSeconds = seconds.toString().padStart(2, '0');
+		return `${minutes}:${zeroPaddedSeconds}`;
+	};
 
 	const reduceTime = () => {
 		// if (timeRemaining == oneMin) {
@@ -25,7 +32,7 @@
 			clearInterval(interval);
 			interval = setInterval(reduceTime, 1000);
 		}
-		timeRemaining = Math.max(0, timeRemaining - 1000);
+		timeRemaining = Math.max(0, timeRemaining - 1);
 	};
 	let interval = setInterval(reduceTime, 1000);
 </script>
@@ -50,6 +57,6 @@
 </style>
 
 <div>
-	<p>{Math.ceil(timeRemaining / 1000)}</p>
-	<Slider bind:timeRemaining max={timeFromUser * 1000} />
+	<p>{formatTime(timeRemaining)}</p>
+	<Slider bind:timeRemaining max={timeFromUser} />
 </div>
