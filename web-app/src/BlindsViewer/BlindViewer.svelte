@@ -44,7 +44,6 @@
 
 <mainWrapper>
 	<h3>Blinds</h3>
-	<hr />
 	<blindsWrapper>
 		<blindNumber>{$bigBlind}</blindNumber>
 		<blindNumber>{$smallBlind}</blindNumber>
