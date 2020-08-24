@@ -1,7 +1,7 @@
 <script>
 	export let timeRemaining;
 	export let max;
-	import { isInactive } from '../stores/metaStore';
+	import { isInactive } from '../../../stores/metaStore';
 </script>
 
 <style>

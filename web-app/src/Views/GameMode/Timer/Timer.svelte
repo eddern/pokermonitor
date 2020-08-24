@@ -1,7 +1,8 @@
 <script>
+	import { round } from '../../../stores/gameStore';
+
 	import Slider from './Slider.svelte';
 	import Controller from './Controller.svelte';
-	import { round } from '../stores/gameStore';
 	export let timeFromUser;
 
 	const resetTimer = () => {

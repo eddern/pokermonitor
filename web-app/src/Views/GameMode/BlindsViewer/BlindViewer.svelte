@@ -1,5 +1,5 @@
 <script>
-	import { smallBlind, bigBlind, nextBigBlind, nextSmallBlind } from '../stores/gameStore';
+	import { smallBlind, bigBlind, nextBigBlind, nextSmallBlind } from '../../../stores/gameStore';
 </script>
 
 <style>
