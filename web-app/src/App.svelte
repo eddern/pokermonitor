@@ -5,6 +5,7 @@
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import data from './data';
 	import Fullscreen from './Fullscreen.svelte';
+	import { handleKeydown } from './utils/helperFunctions';
 
 	const timeFromUser = data.timePerRound;
 </script>
@@ -20,6 +21,7 @@
 	}
 </style>
 
+<!-- <svelte:window on:keydown={handleKeydown} /> -->
 <main id="mainContainer" style={$isInactive ? 'cursor: none;' : 'cursor: auto;'}>
 	<Fullscreen />
 	<Timer {timeFromUser} />

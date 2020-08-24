@@ -1,6 +1,6 @@
 <script>
-	import { setContext } from 'svelte';
 	import Slider from './Slider.svelte';
+	import Controller from './Controller.svelte';
 	import { round } from '../stores/gameStore';
 	export let timeFromUser;
 
@@ -8,6 +8,8 @@
 		return timeFromUser;
 	};
 	let timeRemaining = resetTimer();
+	let isPaused = false;
+
 	//const audio = new Audio('https://www.soundjay.com/button/beep-01a.mp3');
 
 	const oneMin = 60;
@@ -19,7 +21,7 @@
 		const zeroPaddedSeconds = seconds.toString().padStart(2, '0');
 		return `${minutes}:${zeroPaddedSeconds}`;
 	};
-
+	const togglePause = () => (isPaused = !isPaused);
 	const reduceTime = () => {
 		// if (timeRemaining == oneMin) {
 		// 	audio.play();
@@ -33,7 +35,9 @@
 			clearInterval(interval);
 			interval = setInterval(reduceTime, 1000);
 		}
-		timeRemaining = Math.max(0, timeRemaining - 1);
+		if (!isPaused) {
+			timeRemaining = Math.max(0, timeRemaining - 1);
+		}
 	};
 	let interval = setInterval(reduceTime, 1000);
 </script>
@@ -60,4 +64,5 @@
 <div>
 	<p>{formatTime(timeRemaining)}</p>
 	<Slider bind:timeRemaining max={timeFromUser} />
+	<Controller {isPaused} {togglePause} />
 </div>
