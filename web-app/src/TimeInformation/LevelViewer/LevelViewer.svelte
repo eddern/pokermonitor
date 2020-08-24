@@ -1,5 +1,7 @@
 <script>
-	import { currentLevel } from '../../stores/gameStore';
+	import { onDestroy } from 'svelte';
+
+	import { round } from '../../stores/gameStore';
 </script>
 
 <style>
@@ -9,5 +11,5 @@
 </style>
 
 <div>
-	<p>Current Level: {currentLevel}</p>
+	<p>Current Level: {$round + 1}</p>
 </div>
