@@ -5,6 +5,8 @@
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import data from './data';
 	import Fullscreen from './Fullscreen.svelte';
+	import Navbar from './Navigation/Navbar.svelte';
+	import Sidebar from './Navigation/Sidebar.svelte';
 
 	let timeFromUser = data.timePerRound;
 	let index = 0;
@@ -12,6 +14,8 @@
 	let smallBlind = bigBlind / 2;
 	let inactive;
 	isInactive.subscribe((value) => (inactive = value));
+
+	let open = false;
 
 	const incLevel = () => {
 		index++;
@@ -47,8 +51,8 @@
 	}
 </style>
 
-<main id="mainContainer" style={inactive ? 'cursor: none;' : 'cursor: auto;'}>
-	<Fullscreen />
-	<Timer {timeFromUser} {incLevel} />
-	<BlindViewer {bigBlind} {smallBlind} />
-</main>
+<Navbar bind:sidebar={open} />
+<Sidebar bind:open />
+<Fullscreen />
+<Timer {timeFromUser} {incLevel} />
+<BlindViewer {bigBlind} {smallBlind} />
