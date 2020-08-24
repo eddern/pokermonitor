@@ -5,6 +5,8 @@
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import data from './data';
 	import Fullscreen from './Fullscreen.svelte';
+	import ElapsedTime from './ElapsedTime/ElapsedTime.svelte';
+	import Placeholder from './Placeholder/Placeholder.svelte';
 
 	const timeFromUser = data.timePerRound;
 </script>
@@ -18,10 +20,19 @@
 		flex-direction: column;
 		height: 100vh;
 	}
+	.information-panel {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+	}
 </style>
 
 <main id="mainContainer" style={$isInactive ? 'cursor: none;' : 'cursor: auto;'}>
 	<Fullscreen />
 	<Timer {timeFromUser} />
-	<BlindViewer />
+	<div class="information-panel">
+		<Placeholder />
+		<BlindViewer />
+		<ElapsedTime />
+	</div>
 </main>
