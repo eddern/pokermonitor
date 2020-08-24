@@ -27,6 +27,7 @@
 	}
 </style>
 
+<!-- <svelte:window on:keydown={handleKeydown} /> -->
 <main id="mainContainer" style={$isInactive ? 'cursor: none;' : 'cursor: auto;'}>
 	<Fullscreen />
 	<Timer {timeFromUser} />

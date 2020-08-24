@@ -65,6 +65,10 @@ button {
   outline: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 button:disabled {
   color: #999;
 }
