@@ -5,8 +5,8 @@
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import data from './data';
 	import Fullscreen from './Fullscreen.svelte';
-	import ElapsedTime from './ElapsedTime/ElapsedTime.svelte';
 	import Placeholder from './Placeholder/Placeholder.svelte';
+	import TimeInformation from './TimeInformation/TimeInformation.svelte';
 
 	const timeFromUser = data.timePerRound;
 </script>
@@ -33,6 +33,6 @@
 	<div class="information-panel">
 		<Placeholder />
 		<BlindViewer />
-		<ElapsedTime />
+		<TimeInformation />
 	</div>
 </main>

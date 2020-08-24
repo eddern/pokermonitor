@@ -1,6 +1,7 @@
 import { writable, derived } from 'svelte/store';
 import data from '../data';
 
+
 const initiateRound = () => {
 	const { subscribe, set, update } = writable(0);
 	return {
@@ -24,3 +25,6 @@ export const smallBlind = derived(bigBlind, ($bigBlind) => Math.round($bigBlind 
 export const nextSmallBlind = derived(nextBigBlind, ($nextBigBlind) =>
 	Math.round($nextBigBlind / 2),
 );
+
+//Få denne til å gå opp hver gang timeRemaining = 0
+export const currentLevel = 0;

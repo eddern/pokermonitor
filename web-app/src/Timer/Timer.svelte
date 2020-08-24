@@ -1,13 +1,13 @@
 <script>
 	import { setContext } from 'svelte';
 	import Slider from './Slider.svelte';
-	import { round } from '../stores/gameStore';
+	import { round, currentLevel } from '../stores/gameStore';
 	export let timeFromUser;
 
 	const resetTimer = () => {
 		return timeFromUser;
 	};
-	let timeRemaining = resetTimer();
+	export let timeRemaining = resetTimer();
 	//const audio = new Audio('https://www.soundjay.com/button/beep-01a.mp3');
 
 	const oneMin = 60;

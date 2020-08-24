@@ -18,11 +18,8 @@
 	p {
 		color: #dbe3d0;
 	}
-	.wrapper {
-		width: 25%;
-	}
 </style>
 
-<div class="wrapper">
+<div>
 	<p>Elapsed Time: {formatTime(elapsedTime)}</p>
 </div>
