@@ -5,8 +5,8 @@
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import data from './data';
 	import Fullscreen from './Fullscreen.svelte';
-	import Placeholder from './Placeholder/Placeholder.svelte';
-	import TimeInformation from './TimeInformation/TimeInformation.svelte';
+	import Placeholder from './PanelLeft/Placeholder.svelte';
+	import TimeInformation from './PanelRight/TimeInformation.svelte';
 
 	const timeFromUser = data.timePerRound;
 </script>

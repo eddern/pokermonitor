@@ -1,7 +1,7 @@
 <script>
 	import { onDestroy } from 'svelte';
 
-	import { round } from '../../stores/gameStore';
+	import { round } from '../stores/gameStore';
 </script>
 
 <style>
