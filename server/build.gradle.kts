@@ -16,6 +16,7 @@ val ktorVersion = "1.4.0"
 plugins {
     kotlin("jvm") version "1.4.0"
     id("com.google.protobuf") version "0.8.12"
+    id("com.github.johnrengelman.shadow") version "6.0.0"
     idea
     application
 }
@@ -72,4 +73,10 @@ protobuf {
             }
         }
     }
+}
+
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    baseName = "server"
+    classifier = ""
+    version = ""
 }
