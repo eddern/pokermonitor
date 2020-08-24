@@ -11,17 +11,25 @@
 
 <style>
 	main {
+		background-color: #333;
+		transition: background-color 0.4s ease;
 		text-align: center;
 		display: flex;
 		align-items: center;
 		justify-content: space-evenly;
 		flex-direction: column;
+		width: 100vw;
 		height: 100vh;
+	}
+
+	.inactive {
+		cursor: none;
+		background-color: black;
 	}
 </style>
 
 <!-- <svelte:window on:keydown={handleKeydown} /> -->
-<main id="mainContainer" style={$isInactive ? 'cursor: none;' : 'cursor: auto;'}>
+<main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
 	<Fullscreen />
 	<Timer {timeFromUser} />
 	<BlindViewer />
