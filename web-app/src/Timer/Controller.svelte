@@ -18,12 +18,16 @@
 		color: #ddd;
 		font-size: 7rem;
 	}
+	.material-icons {
+		transition: transform 200ms ease;
+	}
+	.material-icons:hover {
+		transform: scale(1.1);
+	}
 </style>
 
 <mainWrapper>
-	{#if $isInactive}
-		<div transition:fade={{ duration: 300 }} />
-	{:else}
+	{#if !$isInactive}
 		<button transition:fade={{ duration: 300 }} on:click={togglePause}>
 			{#if isPaused}
 				<span class="material-icons">play_arrow</span>
