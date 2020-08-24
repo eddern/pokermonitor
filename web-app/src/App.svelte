@@ -11,8 +11,8 @@
 
 <style>
 	main {
-		background-color: #333;
-		transition: background-color 0.4s ease;
+		background-color: #151515;
+		transition: background-color 0.5s ease-in-out;
 		text-align: center;
 		display: flex;
 		align-items: center;
