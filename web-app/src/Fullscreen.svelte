@@ -2,11 +2,6 @@
 	import { isFullscreen, isInactive } from './stores/metaStore';
 	import { onMount, onDestroy } from 'svelte';
 
-	let fullscreen;
-	let inactive;
-	const unsubscribeFullscreen = isFullscreen.subscribe((value) => (fullscreen = value));
-	const unsubscribeInactive = isInactive.subscribe((value) => (inactive = value));
-
 	const closeFullscreen = () => {
 		if (document.exitFullscreen) {
 			document.exitFullscreen();
@@ -38,7 +33,7 @@
 		}
 	};
 
-	const toggleFullscreen = () => (fullscreen ? closeFullscreen() : openFullscreen());
+	const toggleFullscreen = () => ($isFullscreen ? closeFullscreen() : openFullscreen());
 
 	const handleKeyPress = (e) => {
 		switch (e.code) {
@@ -56,7 +51,7 @@
 	var inactivityWater = function () {
 		var time;
 		function inactiveUI() {
-			if (fullscreen) {
+			if ($isFullscreen) {
 				isInactive.set(true);
 			}
 		}
@@ -79,10 +74,6 @@
 		return () => {
 			document.removeEventListener('keypress', handleKeyPress);
 		};
-	});
-	onDestroy(() => {
-		unsubscribeFullscreen();
-		unsubscribeInactive();
 	});
 </script>
 
@@ -129,8 +120,8 @@
 	}
 </style>
 
-<button id="fullscreen-toggle" class={inactive ? 'hide' : 'show'} on:click={toggleFullscreen}>
-	{#if fullscreen}
+<button id="fullscreen-toggle" class={$isInactive ? 'hide' : 'show'} on:click={toggleFullscreen}>
+	{#if $isFullscreen}
 		<span class="material-icons exit-fullscreen-btn">fullscreen_exit</span>
 	{:else}
 		<span class="material-icons fullscreen-btn">fullscreen</span>

@@ -49,13 +49,19 @@
 	}
 
 	.slider::-webkit-slider-thumb {
+		transition: height 250ms ease;
 		width: 25px;
-		height: 25px;
-		border-radius: 25px;
+		height: 13px;
+		border-radius: 13px;
 		background: mediumaquamarine;
 		cursor: move; /* fallback if grab cursor is unsupported */
 		cursor: grab;
 		cursor: -webkit-grab;
+	}
+
+	.slider::-webkit-slider-thumb:hover {
+		height: 25px;
+		border-radius: 25px;
 	}
 
 	.slider::-webkit-slider-thumb:active {
@@ -100,7 +106,7 @@
 		border-radius: 4px;
 		background: mediumaquamarine;
 		height: 100%;
-		transition: 1s linear;
+		transition: width 900ms linear;
 	}
 
 	.show {
