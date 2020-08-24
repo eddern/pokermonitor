@@ -99,7 +99,7 @@
 		transition: opacity 200ms ease-in-out;
 		height: 5px;
 		width: 100%;
-		background: #35654d;
+		background: #222;
 	}
 
 	.progress-left {
