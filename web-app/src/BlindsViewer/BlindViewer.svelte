@@ -45,11 +45,11 @@
 <mainWrapper>
 	<h3>Blinds</h3>
 	<blindsWrapper>
-		<blindNumber>{$bigBlind}</blindNumber>
 		<blindNumber>{$smallBlind}</blindNumber>
+		<blindNumber>{$bigBlind}</blindNumber>
 	</blindsWrapper>
 	<blindsWrapper>
-		<nextBlindNumber>{$nextBigBlind}</nextBlindNumber>
 		<nextBlindNumber>{$nextSmallBlind}</nextBlindNumber>
+		<nextBlindNumber>{$nextBigBlind}</nextBlindNumber>
 	</blindsWrapper>
 </mainWrapper>
