@@ -19,6 +19,7 @@
 		<Link to="/">Home</Link>
 		<Link to="game-mode">GameMode</Link>
 	</nav>
+
 	<div>
 		<Route path="game-mode" component={GameMode} />
 		<Route path="/">
