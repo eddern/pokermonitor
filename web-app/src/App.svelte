@@ -24,7 +24,7 @@
 
 	.inactive {
 		cursor: none;
-		background-color: black;
+		background-color: #2a513e;
 	}
 </style>
 
