@@ -13,6 +13,10 @@
 	main {
 		background-color: #333;
 		transition: background-color 0.4s ease;
+		display: flex;
+		height: 100vh;
+	}
+	#mainContainer {
 		text-align: center;
 		display: flex;
 		align-items: center;
@@ -40,11 +44,10 @@
 </style>
 
 <main>
-	<div class="chipsContainr" />
 	<Chips chipValues={data.chipValues} />
-	<div class="mainContainer">
-		<h1>Pokr2kr</h1>
-		<Timer {timeFromUser} {incLevel} />
-		<BlindViewer {bigBlind} {smallBlind} />
+	<div id="mainContainer" style={$isInactive ? 'cursor: none;' : 'cursor: auto;'}>
+		<Fullscreen />
+		<Timer {timeFromUser} />
+		<BlindViewer />
 	</div>
 </main>
