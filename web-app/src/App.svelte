@@ -11,7 +11,7 @@
 </script>
 
 <style>
-	#mainContainer {
+	main {
 		background-color: #333;
 		position: relative;
 		transition: background-color 0.4s ease;
