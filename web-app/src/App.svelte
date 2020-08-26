@@ -4,6 +4,7 @@
 	import Timer from './Timer/Timer.svelte';
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import data from './data';
+	import Fullscreen from './Fullscreen.svelte';
 	import Chips from './Chips.svelte';
 
 	const timeFromUser = data.timePerRound;
