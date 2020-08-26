@@ -10,13 +10,10 @@
 </script>
 
 <style>
-	main {
-		background-color: #333;
-		transition: background-color 0.4s ease;
-		display: flex;
-		height: 100vh;
-	}
 	#mainContainer {
+		background-color: #333;
+		position: relative;
+		transition: background-color 0.4s ease;
 		text-align: center;
 		display: flex;
 		align-items: center;
@@ -24,6 +21,14 @@
 		flex-direction: column;
 		width: 100vw;
 		height: 100vh;
+	}
+
+	#chipsContainer {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		overflow: scroll;
 	}
 
 	.inactive {
@@ -43,11 +48,11 @@
 	}
 </style>
 
-<main>
-	<Chips chipValues={data.chipValues} />
-	<div id="mainContainer" style={$isInactive ? 'cursor: none;' : 'cursor: auto;'}>
-		<Fullscreen />
-		<Timer {timeFromUser} />
-		<BlindViewer />
+<main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
+	<div id="chipsContainer">
+		<Chips chipValues={data.chipValues} />
 	</div>
+	<Fullscreen />
+	<Timer {timeFromUser} />
+	<BlindViewer />
 </main>
