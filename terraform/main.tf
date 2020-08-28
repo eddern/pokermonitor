@@ -35,6 +35,15 @@ resource "google_container_node_pool" "primary_nodes" {
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
+      "https://www.googleapis.com/auth/devstorage.read_only"
     ]
   }
+}
+resource "google_compute_address" "server_ip" {
+  name   = "server-ip"
+  region = "europe-west4"
+}
+
+output "server_ip" {
+  value = google_compute_address.server_ip.address
 }

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokermonitor-server
+  labels:
+    app: pokermonitor-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pokermonitor-server
+  template:
+    metadata:
+      labels:
+        app: pokermonitor-server
+    spec:
+      containers:
+        - name: pokermonitor-server
+          image: gcr.io/exalted-entry-287817/pokermonitor-server:latest
+          ports:
+            - containerPort: 8080
