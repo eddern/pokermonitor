@@ -5,13 +5,14 @@
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import data from './data';
 	import Fullscreen from './Fullscreen.svelte';
+	import StripeForm from './StripeForm.svelte';
 
 	const timeFromUser = data.timePerRound;
 </script>
 
 <style>
 	main {
-		background-color: #333;
+		background-color: #151515;
 		transition: background-color 0.4s ease;
 		text-align: center;
 		display: flex;
@@ -19,7 +20,7 @@
 		justify-content: space-evenly;
 		flex-direction: column;
 		width: 100vw;
-		height: 100vh;
+		height: 99vh;
 	}
 
 	.inactive {
@@ -31,6 +32,7 @@
 <!-- <svelte:window on:keydown={handleKeydown} /> -->
 <main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
 	<Fullscreen />
+	<StripeForm />
 	<Timer {timeFromUser} />
 	<BlindViewer />
 </main>
