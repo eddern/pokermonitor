@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 
 </script>
 
@@ -10,4 +10,7 @@
 	}
 </style>
 
-<placeholder />
+<div>
+	<h1>Swag</h1>
+	<placeholder />
+</div>

@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 	import { isFullscreen, isInactive } from '../../stores/metaStore';
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 
 	const closeFullscreen = () => {
 		if (document.exitFullscreen) {

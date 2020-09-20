@@ -1,6 +1,6 @@
-<script>
-	export let timeRemaining;
-	export let max;
+<script lang="ts">
+	export let timeRemaining: number;
+	export let max: number;
 	import { isInactive } from '../../../stores/metaStore';
 </script>
 

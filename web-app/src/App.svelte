@@ -5,25 +5,17 @@
 	import Landing from './Views/Landing/Landing.svelte';
 
 	export let url = '';
-	console.log('Hello');
 </script>
-
-<style>
-	.white {
-		color: white;
-	}
-</style>
 
 <Router {url}>
 	<nav>
 		<Link to="/">Home</Link>
-		<Link to="game-mode">GameMode</Link>
+		<Link to="monitor">GameMode</Link>
 	</nav>
 
 	<div>
-		<Route path="game-mode" component={GameMode} />
+		<Route path="monitor" component={GameMode} />
 		<Route path="/">
-			<h1 class="white">Herro there</h1>
 			<Landing />
 		</Route>
 	</div>
