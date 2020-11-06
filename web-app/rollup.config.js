@@ -4,6 +4,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
+import alias from "@rollup/plugin-alias";
+import path from "path";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -70,7 +72,38 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+
+		// Add import alias for components
+		// Avoids relative paths and replaces with absolute paths
+		alias({
+			entries: [
+				{
+					find: "metaStore",
+					replacement: path.resolve("./src/stores/metaStore.js")
+				},
+				{
+					find: "gameStore",
+					replacement: path.resolve("./src/stores/gameStore.js")
+				},
+				{
+					find: "BlindViewer",
+					replacement: path.resolve("./src/BlindsViewer/BlindViewer.svelte")
+				},
+				{
+					find: "@",
+					replacement: path.resolve("./src/")
+				},
+				{
+					find: "data",
+					replacement: path.resolve("./src/data.js")
+				},
+				{
+					find: "Timer",
+					replacement: path.resolve("./src/Timer")
+				}
+			]
+		})
 	],
 	watch: {
 		clearScreen: false
