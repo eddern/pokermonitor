@@ -38,7 +38,7 @@
 <!-- <svelte:window on:keydown={handleKeydown} /> -->
 <main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
 	<div id="chipsContainer">
-		<Chips chipValues={data.chipValues} />
+		<Chips chips={data.chips} />
 	</div>
 	<Fullscreen />
 	<Timer {timeFromUser} />
