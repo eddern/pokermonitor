@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+	import { isInactive } from '../../../stores/metaStore';
+
 	export let timeRemaining: number;
 	export let max: number;
-	import { isInactive } from '../../../stores/metaStore';
 </script>
 
 <style>
@@ -108,31 +110,20 @@
 		height: 100%;
 		transition: width 900ms linear;
 	}
-
-	.show {
-		opacity: 1;
-	}
-
-	.hide {
-		opacity: 0;
-	}
-
-	.display-block {
-		display: block;
-	}
-	.display-none {
-		display: none;
-	}
 </style>
 
 <div class="slider-container">
-	<input
-		type="range"
-		class="slider {$isInactive ? 'hide' : 'show'}"
-		bind:value={timeRemaining}
-		min="0"
-		{max} />
-	<div class="progressbar {$isInactive ? 'display-block' : 'display-none'}">
-		<div class="progress-left" style="width: {`${(timeRemaining / max) * 100}%`}" />
-	</div>
+	{#if $isInactive}
+		<div transition:fade={{ duration: 300 }} class="progressbar">
+			<div class="progress-left" style="width: {`${(timeRemaining / max) * 100}%`}" />
+		</div>
+	{:else}
+		<input
+			transition:fade={{ duration: 300 }}
+			type="range"
+			class="slider"
+			bind:value={timeRemaining}
+			min="0"
+			{max} />
+	{/if}
 </div>
