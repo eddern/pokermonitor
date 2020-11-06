@@ -1,41 +1,44 @@
 {
-  "name": "Pokr.ofc",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public",
-    "format": "prettier --write --plugin-search-dir=. ./**/**/**/*.svelte"
-  },
-  "lint-staged": {
-    "**/**/**/*.svelte": [
-      "npm run format",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.0",
-    "@rollup/plugin-typescript": "^4.0.0",
-    "@tsconfig/svelte": "^1.0.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5",
-    "prettier-plugin-svelte": "^1.1.0",
-    "rollup": "^2.3.4",
-    "rollup-plugin-livereload": "^1.0.0",
-    "rollup-plugin-svelte": "^5.0.3",
-    "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.3"
-  },
-  "dependencies": {
-    "sirv-cli": "^1.0.0"
-  }
+	"name": "pokermonitor",
+	"version": "0.1.0",
+	"scripts": {
+		"build": "rollup -c",
+		"dev": "rollup -c -w",
+		"start": "sirv public -s",
+		"format": "prettier --write --plugin-search-dir=. ./**/**/**/*.svelte"
+	},
+	"lint-staged": {
+		"**/**/**/*.svelte": [
+			"npm run format",
+			"git add"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^14.0.0",
+		"@rollup/plugin-node-resolve": "^8.0.0",
+		"@rollup/plugin-typescript": "^4.0.0",
+		"@tsconfig/svelte": "^1.0.0",
+		"husky": "^4.2.5",
+		"lint-staged": "^10.2.11",
+		"prettier": "^2.0.5",
+		"prettier-plugin-svelte": "^1.1.0",
+		"rollup": "^2.3.4",
+		"rollup-plugin-livereload": "^1.0.0",
+		"rollup-plugin-svelte": "^5.0.3",
+		"rollup-plugin-terser": "^7.0.0",
+		"rollup-plugin-typescript": "^1.0.1",
+		"svelte": "^3.0.0",
+		"svelte-preprocess": "^4.3.0",
+		"tslib": "^2.0.1",
+		"typescript": "^3.9.7"
+	},
+	"dependencies": {
+		"sirv-cli": "^1.0.0",
+		"svelte-routing": "^1.4.2"
+	}
 }
