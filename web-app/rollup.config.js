@@ -3,6 +3,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import typescript from 'rollup-plugin-typescript';
+import autoPreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import alias from "@rollup/plugin-alias";
 import path from "path";
@@ -11,7 +13,7 @@ const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
 	let server;
-	
+
 	function toExit() {
 		if (server) server.kill(0);
 	}
@@ -21,7 +23,7 @@ function serve() {
 			if (server) return;
 			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
-				shell: true
+				shell: true,
 			});
 
 			process.on('SIGTERM', toExit);
@@ -42,9 +44,10 @@ export default {
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,
+			preprocess: autoPreprocess(),
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
-			css: css => {
+			css: (css) => {
 				css.write('public/build/bundle.css');
 			},
 		}),
@@ -59,7 +62,6 @@ export default {
 			dedupe: ['svelte']
 		}),
 		commonjs(),
-		typescript({ sourceMap: !production }),
 		typescript({ sourceMap: !production }),
 
 		// In dev mode, call `npm run start` once
@@ -106,6 +108,6 @@ export default {
 		})
 	],
 	watch: {
-		clearScreen: false
-	}
+		clearScreen: false,
+	},
 };
