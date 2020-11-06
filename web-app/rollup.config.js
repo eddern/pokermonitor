@@ -3,7 +3,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript';
 import autoPreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import alias from "@rollup/plugin-alias";
@@ -90,20 +89,33 @@ export default {
 				},
 				{
 					find: "BlindViewer",
-					replacement: path.resolve("./src/BlindsViewer/BlindViewer.svelte")
+					replacement: path.resolve("./src/Views/GameMode/BlindsViewer/BlindViewer.svelte")
 				},
 				{
 					find: "@",
-					replacement: path.resolve("./src/")
+					replacement: path.resolve("./src")
 				},
 				{
-					find: "data",
-					replacement: path.resolve("./src/data.js")
+					find: "mockData",
+					replacement: path.resolve("./src/mockData.js")
 				},
 				{
 					find: "Timer",
-					replacement: path.resolve("./src/Timer")
-				}
+					replacement: path.resolve("./src/Views/GameMode/Timer")
+				},
+				{
+					find: "GameMode",
+					replacement: path.resolve("./src/Views/GameMode")
+				},
+				{
+					find: "Landing",
+					replacement: path.resolve("./src/Views/Landing")
+				},
+				{
+					find: "Views",
+					replacement: path.resolve("./src/Views/")
+				},
+
 			]
 		})
 	],
