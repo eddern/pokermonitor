@@ -2,32 +2,16 @@
 
 </script>
 
-<style>
-	.container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.text-wrapper {
-		width: 50vw;
-		height: 50vh;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		background: #666;
-	}
-</style>
-
-<div class="container">
+<div class="container bg-red-600 p-10">
 	<div class="text-wrapper">
 		<h1>Welcome to pokermonitor</h1>
 		<h2>We are here for everyone</h2>
 		<h3>
 			Democrats, Liberals, all of the
-			<span style="color: red">United</span>
-			<span style="color: white">States</span>
-			<span style="color: black">of</span>
-			<span style="color: blue">America</span>
+			<span class="text-green-300">United</span>
+			<span class="text-red-300">States</span>
+			<span class="text-blue-500">of</span>
+			<span class="text-yellow-500">America</span>
 		</h3>
 	</div>
 </div>
