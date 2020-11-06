@@ -1,5 +1,5 @@
-<script>
-	import { smallBlind, bigBlind, nextBigBlind, nextSmallBlind } from '../stores/gameStore';
+<script lang="ts">
+	import { smallBlind, bigBlind, nextBigBlind, nextSmallBlind } from '../../../stores/gameStore';
 </script>
 
 <style>
@@ -36,9 +36,6 @@
 		font-weight: 100;
 		font-size: 2rem;
 		margin: 0;
-	}
-	hr {
-		border-color: #000;
 	}
 </style>
 

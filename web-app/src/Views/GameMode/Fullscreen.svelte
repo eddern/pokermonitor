@@ -1,6 +1,6 @@
-<script>
-	import { isFullscreen, isInactive } from './stores/metaStore';
-	import { onMount, onDestroy } from 'svelte';
+<script lang="ts">
+	import { isFullscreen, isInactive } from '../../stores/metaStore';
+	import { onMount } from 'svelte';
 
 	const closeFullscreen = () => {
 		if (document.exitFullscreen) {
@@ -48,9 +48,8 @@
 		}
 	};
 
-	var inactivityWater = function () {
-		console.log('It happend')
-		var time;
+	let inactivityWater = function () {
+		let time;
 		function inactiveUI() {
 			if ($isFullscreen) {
 				isInactive.set(true);
