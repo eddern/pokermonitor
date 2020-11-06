@@ -4,6 +4,7 @@
 	import Timer from './Timer/Timer.svelte';
 	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
 	import Fullscreen from './Fullscreen.svelte';
+	import Chips from '../../Chips.svelte';
 
 	const timeFromUser = data.timePerRound;
 </script>
@@ -25,10 +26,21 @@
 		cursor: none;
 		background-color: black;
 	}
+
+	#chipsContainer {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		overflow: scroll;
+	}
 </style>
 
 <!-- <svelte:window on:keydown={handleKeydown} /> -->
 <main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
+	<div id="chipsContainer">
+		<Chips chipValues={data.chipValues} />
+	</div>
 	<Fullscreen />
 	<Timer {timeFromUser} />
 	<BlindViewer />
