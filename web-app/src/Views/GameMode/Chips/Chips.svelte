@@ -1,6 +1,8 @@
 <script lang="ts">
 	import ChipIcon from './ChipIcon.svelte';
-	export let chipValues;
+	import type { Chip } from './typings/GameTypes';
+
+	export let chips: Chip[];
 
 	const invertHex = (hex: string) => {
 		return (
@@ -24,12 +26,9 @@
 
 <main>
 	<div class="wrapper">
-		{#each Object.keys(chipValues) as chipColor, i}
+		{#each chips as chip}
 			<div class="chipContainer">
-				<ChipIcon
-					color={chipColor}
-					textColor={invertHex(chipColor)}
-					value={chipValues[chipColor]} />
+				<ChipIcon color={chip.color} textColor={invertHex(chip.color)} value={chip.value} />
 			</div>
 		{/each}
 	</div>

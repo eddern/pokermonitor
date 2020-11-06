@@ -1,11 +1,12 @@
 <script lang="ts">
-	import data from 'mockData';
+	import data from '../../mockData.ts';
 	import { isInactive } from 'metaStore';
 	import Timer from 'Timer/Timer.svelte';
 	import BlindViewer from 'BlindViewer';
 	import Fullscreen from 'GameMode/Fullscreen.svelte';
-	//import Chips from 'Views/Chips.svelte';
 	import Chips from './Chips/Chips.svelte';
+
+	console.log({ data });
 
 	const timeFromUser = data.timePerRound;
 </script>
@@ -31,7 +32,6 @@
 	#chipsContainer {
 		position: absolute;
 		left: 0;
-		top: 0;
 		height: 100%;
 		overflow: scroll;
 	}
@@ -40,7 +40,7 @@
 <!-- <svelte:window on:keydown={handleKeydown} /> -->
 <main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
 	<div id="chipsContainer">
-		<Chips chipValues={data.chipValues} />
+		<Chips chips={data.chips} />
 	</div>
 	<Fullscreen />
 	<Timer {timeFromUser} />

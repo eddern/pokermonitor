@@ -97,7 +97,7 @@ export default {
 				},
 				{
 					find: "mockData",
-					replacement: path.resolve("./src/mockData.js")
+					replacement: path.resolve("./src/mockData.ts")
 				},
 				{
 					find: "Timer",
@@ -114,6 +114,10 @@ export default {
 				{
 					find: "Views",
 					replacement: path.resolve("./src/Views/")
+				},
+				{
+					find: "Chips",
+					replacement: path.resolve("./src/Views/Chips")
 				},
 
 			]

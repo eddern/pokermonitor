@@ -4,7 +4,6 @@
 	import { isInactive } from 'metaStore';
 	import Timer from 'Timer/Timer.svelte';
 	import BlindViewer from 'BlindViewer';
-	import data from 'mockData';
 	import Fullscreen from 'GameMode/Fullscreen.svelte';
 
 	import GameMode from 'GameMode/GameMode.svelte';
