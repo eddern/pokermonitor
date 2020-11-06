@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { isInactive } from './stores/metaStore';
-	import Timer from './Timer/Timer.svelte';
-	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
-	import data from './data';
+	import { isInactive } from 'metaStore';
+	import Timer from 'Timer/Timer.svelte';
+	import BlindViewer from 'BlindViewer';
+	import data from 'data';
 	import Fullscreen from './Fullscreen.svelte';
 
 	const timeFromUser = data.timePerRound;

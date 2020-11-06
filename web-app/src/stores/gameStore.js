@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store';
-import data from '../data';
+import data from 'data';
 
 const initiateRound = () => {
 	const { subscribe, set, update } = writable(0);
