@@ -48,8 +48,8 @@
 		}
 	};
 
-	var inactivityWater = function () {
-		var time;
+	let inactivityWater = function () {
+		let time;
 		function inactiveUI() {
 			if ($isFullscreen) {
 				isInactive.set(true);
