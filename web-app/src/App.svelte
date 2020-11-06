@@ -1,36 +1,22 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
-	import { isInactive } from './stores/metaStore';
-	import Timer from './Timer/Timer.svelte';
-	import BlindViewer from './BlindsViewer/BlindViewer.svelte';
-	import data from './data';
-	import Fullscreen from './Fullscreen.svelte';
+	import { Router, Link, Route } from 'svelte-routing';
 
-	const timeFromUser = data.timePerRound;
+	import GameMode from './Views/GameMode/GameMode.svelte';
+	import Landing from './Views/Landing/Landing.svelte';
+
+	export let url = '';
 </script>
 
-<style>
-	main {
-		background-color: #333;
-		transition: background-color 0.4s ease;
-		text-align: center;
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-		flex-direction: column;
-		width: 100vw;
-		height: 100vh;
-	}
+<Router {url}>
+	<nav>
+		<Link to="/">Home</Link>
+		<Link to="monitor">GameMode</Link>
+	</nav>
 
-	.inactive {
-		cursor: none;
-		background-color: black;
-	}
-</style>
-
-<!-- <svelte:window on:keydown={handleKeydown} /> -->
-<main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
-	<Fullscreen />
-	<Timer {timeFromUser} />
-	<BlindViewer />
-</main>
+	<div>
+		<Route path="monitor" component={GameMode} />
+		<Route path="/">
+			<Landing />
+		</Route>
+	</div>
+</Router>

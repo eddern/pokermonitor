@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
+	import { round } from '../../../stores/gameStore';
+
 	import Slider from './Slider.svelte';
 	import Controller from './Controller.svelte';
-	import { round } from '../stores/gameStore';
-	export let timeFromUser;
+	export let timeFromUser: number;
 
 	const resetTimer = () => {
 		return timeFromUser;
@@ -12,10 +13,7 @@
 
 	//const audio = new Audio('https://www.soundjay.com/button/beep-01a.mp3');
 
-	const oneMin = 60;
-	const tenSec = 10;
-
-	const formatTime = (timeRemaining) => {
+	const formatTime = (timeRemaining: number) => {
 		const minutes = Math.floor(timeRemaining / 60);
 		const seconds = timeRemaining % 60;
 		const zeroPaddedSeconds = seconds.toString().padStart(2, '0');

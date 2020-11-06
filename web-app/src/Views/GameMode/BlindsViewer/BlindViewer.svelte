@@ -1,5 +1,5 @@
-<script>
-	import { smallBlind, bigBlind, nextBigBlind, nextSmallBlind } from '../stores/gameStore';
+<script lang="ts">
+	import { smallBlind, bigBlind, nextBigBlind, nextSmallBlind } from '../../../stores/gameStore';
 </script>
 
 <style>
@@ -37,19 +37,16 @@
 		font-size: 2rem;
 		margin: 0;
 	}
-	hr {
-		border-color: #000;
-	}
 </style>
 
 <mainWrapper>
 	<h3>Blinds</h3>
 	<blindsWrapper>
-		<blindNumber>{$bigBlind}</blindNumber>
 		<blindNumber>{$smallBlind}</blindNumber>
+		<blindNumber>{$bigBlind}</blindNumber>
 	</blindsWrapper>
 	<blindsWrapper>
-		<nextBlindNumber>{$nextBigBlind}</nextBlindNumber>
 		<nextBlindNumber>{$nextSmallBlind}</nextBlindNumber>
+		<nextBlindNumber>{$nextBigBlind}</nextBlindNumber>
 	</blindsWrapper>
 </mainWrapper>

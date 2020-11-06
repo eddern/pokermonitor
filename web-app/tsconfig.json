@@ -1,6 +1,7 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
-
-  "include": ["src/**/*"],
-  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+	"extends": "@tsconfig/svelte/tsconfig.json",
+	"include": ["src/**/*"],
+	"exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+	"lib": ["es5", "es6", "dom"],
+	"target": "es5"
 }
