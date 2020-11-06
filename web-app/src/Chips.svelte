@@ -8,6 +8,7 @@
 	.wrapper {
 		display: flex;
 		flex-direction: column;
+		max-height: 100vh;
 	}
 
 	.chipContainer {

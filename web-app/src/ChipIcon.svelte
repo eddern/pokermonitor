@@ -19,6 +19,7 @@
 	h1 {
 		color: var(--text-color);
 		font-weight: 300;
+		font-size: 76px;
 	}
 </style>
 
@@ -36,10 +37,10 @@
 		id="Capa_1"
 		x="0px"
 		y="0px"
-		viewBox="0 0 212.03506 212.03423"
+		viewBox="0 0 92.03506 92.03423"
 		xml:space="preserve"
-		width="212.03505"
-		height="212.03423">
+		width="92.03505"
+		height="92.03423">
 		<metadata id="metadata132">
 			<rdf:RDF>
 				<cc:Work rdf:about="">

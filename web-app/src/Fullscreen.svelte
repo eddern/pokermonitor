@@ -49,6 +49,7 @@
 	};
 
 	var inactivityWater = function () {
+		console.log('It happend')
 		var time;
 		function inactiveUI() {
 			if ($isFullscreen) {
