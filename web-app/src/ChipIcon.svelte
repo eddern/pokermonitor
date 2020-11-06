@@ -1,6 +1,6 @@
 <script>
-	export let color;
-	export let textColor;
+	export let color = '#FFF';
+	export let textColor = '#000';
 	export let value;
 </script>
 
