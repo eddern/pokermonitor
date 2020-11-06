@@ -6,6 +6,8 @@
 	import Fullscreen from './Fullscreen.svelte';
 
 	const timeFromUser = data.timePerRound;
+	const breakTimeFromUser = data.timePerBreak;
+	const roundsPerBreakFromUser = data.roundsPerBreak;
 </script>
 
 <style>
@@ -30,6 +32,6 @@
 <!-- <svelte:window on:keydown={handleKeydown} /> -->
 <main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
 	<Fullscreen />
-	<Timer {timeFromUser} />
+	<Timer {timeFromUser} {breakTimeFromUser} {roundsPerBreakFromUser} />
 	<BlindViewer />
 </main>

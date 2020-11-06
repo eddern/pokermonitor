@@ -4,12 +4,20 @@
 	import Slider from './Slider.svelte';
 	import Controller from './Controller.svelte';
 	export let timeFromUser: number;
+	export let breakTimeFromUser: number;
+	export let roundsPerBreakFromUser: number;
 
 	const resetTimer = () => {
 		return timeFromUser;
 	};
 	let timeRemaining = resetTimer();
 	let isPaused = false;
+
+	const setBreakTimer = () => {
+		return roundsPerBreakFromUser * timeFromUser + breakTimeFromUser;
+	};
+	let timeToBreak = roundsPerBreakFromUser * timeFromUser;
+	let isBreak = false;
 
 	//const audio = new Audio('https://www.soundjay.com/button/beep-01a.mp3');
 
@@ -27,6 +35,14 @@
 		// if (timeRemaining > 0 && timeRemaining < tenSec) {
 		// 	audio.play();
 		// }
+
+		if (timeToBreak === 0) {
+			isBreak = true;
+			timeRemaining = breakTimeFromUser;
+			timeToBreak = setBreakTimer();
+			clearInterval(interval);
+			interval = setInterval(reduceTime, 1000);
+		}
 		if (timeRemaining === 0) {
 			round.increment();
 			timeRemaining = resetTimer();
@@ -35,6 +51,7 @@
 		}
 		if (!isPaused) {
 			timeRemaining = Math.max(0, timeRemaining - 1);
+			timeToBreak = Math.max(0, timeToBreak - 1);
 		}
 	};
 	let interval = setInterval(reduceTime, 1000);
@@ -61,6 +78,6 @@
 
 <div>
 	<p>{formatTime(timeRemaining)}</p>
-	<Slider bind:timeRemaining max={timeFromUser} />
+	<Slider bind:timeRemaining max={timeFromUser} breakMax={breakTimeFromUser} {isBreak} />
 	<Controller {isPaused} {togglePause} />
 </div>
