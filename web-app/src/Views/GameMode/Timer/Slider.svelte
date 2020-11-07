@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { isInactive } from '../../../stores/metaStore';
+	import { isInactive, isBreak } from '../../../stores/metaStore';
 
 	export let timeRemaining: number;
 	export let max: number;
 	export let breakMax: number;
-	export let isBreak: boolean;
 
 	const setMax = () => {
-		if (isBreak) {
+		if ($isBreak) {
 			return breakMax;
 		} else {
 			return max;
@@ -134,6 +133,6 @@
 			class="slider"
 			bind:value={timeRemaining}
 			min="0"
-			max={setMax()} />
+			max={$isBreak ? breakMax : max} />
 	{/if}
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { round } from '../../../stores/gameStore';
-
+	import { isBreak } from '../../../stores/metaStore';
 	import Slider from './Slider.svelte';
 	import Controller from './Controller.svelte';
 	export let timeFromUser: number;
@@ -13,11 +13,10 @@
 	let timeRemaining = resetTimer();
 	let isPaused = false;
 
-	const setBreakTimer = () => {
+	const resetBreakTimer = () => {
 		return roundsPerBreakFromUser * timeFromUser + breakTimeFromUser;
 	};
 	let timeToBreak = roundsPerBreakFromUser * timeFromUser;
-	let isBreak = false;
 
 	//const audio = new Audio('https://www.soundjay.com/button/beep-01a.mp3');
 
@@ -37,13 +36,13 @@
 		// }
 
 		if (timeToBreak === 0) {
-			isBreak = true;
+			isBreak.set(true);
 			timeRemaining = breakTimeFromUser;
-			timeToBreak = setBreakTimer();
+			timeToBreak = resetBreakTimer();
 			clearInterval(interval);
 			interval = setInterval(reduceTime, 1000);
-		}
-		if (timeRemaining === 0) {
+		} else if (timeRemaining === 0) {
+			isBreak.set(false);
 			round.increment();
 			timeRemaining = resetTimer();
 			clearInterval(interval);
@@ -78,6 +77,6 @@
 
 <div>
 	<p>{formatTime(timeRemaining)}</p>
-	<Slider bind:timeRemaining max={timeFromUser} breakMax={breakTimeFromUser} {isBreak} />
+	<Slider bind:timeRemaining max={timeFromUser} breakMax={breakTimeFromUser} />
 	<Controller {isPaused} {togglePause} />
 </div>
