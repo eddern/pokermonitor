@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ChipIcon from './ChipIcon.svelte';
-	import type { Chip } from './typings/GameTypes';
+	import ChipIcon from 'Chips/ChipIcon.svelte';
+	import type { Chip } from 'typings/GameTypes';
 
 	export let chips: Chip[];
 

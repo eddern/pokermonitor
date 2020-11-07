@@ -1,10 +1,10 @@
 <script lang="ts">
-	import data from '../../mockData.ts';
+	import data from 'mockData';
 	import { isInactive } from 'metaStore';
 	import Timer from 'Timer/Timer.svelte';
 	import BlindViewer from 'BlindViewer';
 	import Fullscreen from 'GameMode/Fullscreen.svelte';
-	import Chips from './Chips/Chips.svelte';
+	import Chips from 'Chips/Chips.svelte';
 
 	const timeFromUser = data.timePerRound;
 </script>
