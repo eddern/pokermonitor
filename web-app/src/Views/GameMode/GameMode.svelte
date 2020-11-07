@@ -6,8 +6,6 @@
 	import Fullscreen from 'GameMode/Fullscreen.svelte';
 	import Chips from './Chips/Chips.svelte';
 
-	console.log({ data });
-
 	const timeFromUser = data.timePerRound;
 </script>
 
