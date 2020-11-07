@@ -117,9 +117,8 @@ export default {
 				},
 				{
 					find: "Chips",
-					replacement: path.resolve("./src/Views/Chips")
+					replacement: path.resolve("./src/Views/GameMode/Chips")
 				},
-
 			]
 		})
 	],

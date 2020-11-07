@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { isInactive } from '../../../stores/metaStore';
+	import { isInactive } from 'metaStore';
 	export let togglePause: () => void;
 	export let isPaused: boolean;
 </script>
