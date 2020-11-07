@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { round } from '../../../stores/gameStore';
-	import { isBreak } from '../../../stores/metaStore';
-	import Slider from './Slider.svelte';
-	import Controller from './Controller.svelte';
+	import { round } from 'gameStore';
+	import { isBreak } from 'metaStore';
+	import Slider from 'Timer/Slider.svelte';
+	import Controller from 'Timer/Controller.svelte';
 	export let timeFromUser: number;
 	export let breakTimeFromUser: number;
 	export let roundsPerBreakFromUser: number;

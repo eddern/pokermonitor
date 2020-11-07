@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { isInactive, isBreak } from '../../../stores/metaStore';
+	import { isInactive, isBreak } from 'metaStore';
 
 	export let timeRemaining: number;
 	export let max: number;

@@ -31,6 +31,15 @@ npm install
 npm run dev
 ```
 
+// update readme
+// install and run
+// hot keys
+// directory structure
+// create explanation of how it works
+
+// legge alias på imports, absolute paths
+// lage "notificationb" etter 10 sec om hot keys
+
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
 By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
