@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { round } from '../../../stores/gameStore';
+	import { round } from 'gameStore';
 
-	import Slider from './Slider.svelte';
-	import Controller from './Controller.svelte';
+	import Slider from 'Timer/Slider.svelte';
+	import Controller from 'Timer/Controller.svelte';
 	export let timeFromUser: number;
 
 	const resetTimer = () => {

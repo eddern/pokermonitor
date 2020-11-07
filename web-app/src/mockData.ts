@@ -1,4 +1,4 @@
-import type { GameConfig } from './typings/GameTypes';
+import type {GameConfig} from "./typings/GameTypes";
 
 const defaultConfig: GameConfig = {
 	timePerRound: 20 * 60,

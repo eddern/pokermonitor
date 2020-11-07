@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store';
-import data from '../mockData';
+import data from '../mockData.ts';
 
 const initiateRound = () => {
 	const { subscribe, set, update } = writable(0);

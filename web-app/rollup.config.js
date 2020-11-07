@@ -3,8 +3,10 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript';
 import autoPreprocess from 'svelte-preprocess';
+import typescript from '@rollup/plugin-typescript';
+import alias from "@rollup/plugin-alias";
+import path from "path";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -25,7 +27,7 @@ function serve() {
 
 			process.on('SIGTERM', toExit);
 			process.on('exit', toExit);
-		},
+		}
 	};
 }
 
@@ -35,7 +37,7 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js',
+		file: 'public/build/bundle.js'
 	},
 	plugins: [
 		svelte({
@@ -56,7 +58,7 @@ export default {
 		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
-			dedupe: ['svelte'],
+			dedupe: ['svelte']
 		}),
 		commonjs(),
 		typescript({ sourceMap: !production }),
@@ -72,6 +74,54 @@ export default {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
+
+		// Add import alias for components
+		// Avoids relative paths and replaces with absolute paths
+		alias({
+			entries: [
+				{
+					find: "metaStore",
+					replacement: path.resolve("./src/stores/metaStore.js")
+				},
+				{
+					find: "gameStore",
+					replacement: path.resolve("./src/stores/gameStore.js")
+				},
+				{
+					find: "BlindViewer",
+					replacement: path.resolve("./src/Views/GameMode/BlindsViewer/BlindViewer.svelte")
+				},
+				{
+					find: "@",
+					replacement: path.resolve("./src")
+				},
+				{
+					find: "mockData",
+					replacement: path.resolve("./src/mockData.ts")
+				},
+				{
+					find: "Timer",
+					replacement: path.resolve("./src/Views/GameMode/Timer")
+				},
+				{
+					find: "GameMode",
+					replacement: path.resolve("./src/Views/GameMode")
+				},
+				{
+					find: "Landing",
+					replacement: path.resolve("./src/Views/Landing")
+				},
+				{
+					find: "Views",
+					replacement: path.resolve("./src/Views/")
+				},
+				{
+					find: "Chips",
+					replacement: path.resolve("./src/Views/Chips")
+				},
+
+			]
+		})
 	],
 	watch: {
 		clearScreen: false,
