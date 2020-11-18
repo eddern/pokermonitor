@@ -4,7 +4,11 @@
 
 <style>
 	mainWrapper {
-		width: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		padding-left: 20%;
+		padding-right: 20%;
 	}
 
 	blindsWrapper {

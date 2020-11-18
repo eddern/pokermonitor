@@ -13,23 +13,11 @@
 <style>
 	main {
 		background-color: #333;
-		position: relative;
 		transition: background-color 0.4s ease;
-		text-align: center;
 		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-		flex-direction: column;
+		flex-direction: row;
 		width: 100vw;
 		height: 100vh;
-	}
-
-	#chipsContainer {
-		position: absolute;
-		left: 0;
-		top: 0;
-		height: 100%;
-		overflow: scroll;
 	}
 
 	.inactive {
@@ -47,13 +35,34 @@
 		font-size: 13em;
 		font-weight: 100;
 	}
+	.middle {
+		width: 70%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		text-align: center;
+	}
+	.left {
+		width: 15%;
+		display: flex;
+		justify-content: flex-start;
+	}
+	.right {
+		width: 15%;
+		display: flex;
+		justify-content: flex-end;
+	}
 </style>
 
 <main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
-	<div id="chipsContainer">
+
+	<Fullscreen />
+	<div class="left">
 		<Chips chipValues={data.chipValues} />
 	</div>
-	<Fullscreen />
-	<Timer {timeFromUser} />
-	<BlindViewer />
+	<div class="middle">
+		<Timer {timeFromUser} />
+		<BlindViewer />
+	</div>
+	<div class="right" />
 </main>

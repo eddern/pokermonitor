@@ -6,8 +6,9 @@
 
 <style>
 	.wrapper {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-row: 2;
+		margin-top: 100%;
 	}
 
 	.chipContainer {
@@ -17,12 +18,12 @@
 
 <main>
 	<div class="wrapper">
-		{#each Object.keys(chipValues) as chipColor, i}
+		{#each chipValues as chipValue}
 			<div class="chipContainer">
 				<ChipIcon
-					color={chipColor}
-					textColor={invertHex(chipColor)}
-					value={chipValues[chipColor]} />
+					color1={chipValue.color1}
+					color2={chipValue.color2}
+					value={chipValue.value} />
 			</div>
 		{/each}
 	</div>
