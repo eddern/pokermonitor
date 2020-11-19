@@ -28,6 +28,21 @@ npm run build
 
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
 
+## Run as Docker container
+
+Build the application as you would normally.
+```
+cd web-app
+npm run build
+```
+Build the docker image.
+```
+# in web-app/
+docker build -t pokr-web . 
+docker run -p 8000:80 pokr-web
+```
+
+Visit [http://localhost:8000/](http://localhost:8000/).
 
 ## Single-page app mode
 
