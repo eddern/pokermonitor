@@ -6,6 +6,8 @@ export type Chip = {
 
 export type GameConfig = {
   timePerRound: number;
+  roundsPerBreak: number;
+	timePerBreak: number;
   blinds: number[];
   beepSoundUrl?: string;
   chips: Chip[];

@@ -1,9 +1,18 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { isInactive } from 'metaStore';
+	import { isInactive, isBreak } from 'metaStore';
 
 	export let timeRemaining: number;
 	export let max: number;
+	export let breakMax: number;
+
+	const setMax = () => {
+		if ($isBreak) {
+			return breakMax;
+		} else {
+			return max;
+		}
+	};
 </script>
 
 <style>
@@ -115,7 +124,7 @@
 <div class="slider-container">
 	{#if $isInactive}
 		<div transition:fade={{ duration: 300 }} class="progressbar">
-			<div class="progress-left" style="width: {`${(timeRemaining / max) * 100}%`}" />
+			<div class="progress-left" style="width: {`${(timeRemaining / setMax()) * 100}%`}" />
 		</div>
 	{:else}
 		<input
@@ -124,6 +133,6 @@
 			class="slider"
 			bind:value={timeRemaining}
 			min="0"
-			{max} />
+			max={$isBreak ? breakMax : max} />
 	{/if}
 </div>

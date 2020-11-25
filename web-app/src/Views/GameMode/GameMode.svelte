@@ -7,6 +7,8 @@
 	import Chips from 'Chips/Chips.svelte';
 
 	const timeFromUser = data.timePerRound;
+	const breakTimeFromUser = data.timePerBreak;
+	const roundsPerBreakFromUser = data.roundsPerBreak;
 </script>
 
 <style>
@@ -41,6 +43,6 @@
 		<Chips chips={data.chips} />
 	</div>
 	<Fullscreen />
-	<Timer {timeFromUser} />
+	<Timer {timeFromUser} {breakTimeFromUser} {roundsPerBreakFromUser} />
 	<BlindViewer />
 </main>

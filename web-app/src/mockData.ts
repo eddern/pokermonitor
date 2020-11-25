@@ -1,8 +1,10 @@
-import type {GameConfig} from "./typings/GameTypes";
+import type { GameConfig } from './typings/GameTypes';
 
 const defaultConfig: GameConfig = {
 	timePerRound: 20 * 60,
 	blinds: [10, 20, 25, 40],
+	roundsPerBreak: 3,
+	timePerBreak: 15 * 60,
 	beepSoundUrl: 'https://www.soundjay.com/button/beep-01a.mp3',
 	chips: [
 		{
