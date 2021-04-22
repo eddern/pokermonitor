@@ -37,9 +37,9 @@
 
 <!-- <svelte:window on:keydown={handleKeydown} /> -->
 <main id="mainContainer" class={$isInactive ? 'inactive' : ''}>
-	<div id="chipsContainer">
+	<!-- <div id="chipsContainer">
 		<Chips chips={data.chips} />
-	</div>
+	</div> -->
 	<Fullscreen />
 	<Timer {timeFromUser} />
 	<BlindViewer />
